@@ -1,271 +1,891 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANIKRIMED - مواد السباكة والترخيص</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font (Cairo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SANIKRIMED | مواد السباكة والترصيص</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:#f5f6f8;
+    color:#102744;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.top{
+    background:#06264b;
+    color:white;
+    padding:8px 5%;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+}
+
+header{
+    background:white;
+    box-shadow:0 2px 10px #0002;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:12px 20px;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:900;
+    color:#06264b;
+}
+
+.logo span{
+    color:#c51e27;
+}
+
+.logo small{
+    display:block;
+    font-size:13px;
+    color:#222;
+}
+
+nav{
+    display:flex;
+    gap:18px;
+    flex:1;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.search{
+    width:210px;
+    padding:11px;
+    border:1px solid #ddd;
+    border-radius:25px;
+}
+
+.cart{
+    background:#06264b;
+    color:white;
+    border:0;
+    padding:11px 18px;
+    border-radius:25px;
+}
+
+.hero{
+    background:linear-gradient(90deg,#fff,#e5ebef);
+}
+
+.hero-content{
+    max-width:1250px;
+    margin:auto;
+    min-height:420px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:30px;
+    padding:40px 25px;
+}
+
+.hero h1{
+    font-size:45px;
+    line-height:1.2;
+    color:#06264b;
+}
+
+.hero h1 span{
+    color:#c51e27;
+}
+
+.hero p{
+    font-size:19px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:10px;
+    border:0;
+    font-weight:bold;
+    margin:5px;
+    cursor:pointer;
+}
+
+.blue{
+    background:#06264b;
+    color:white;
+}
+
+.green{
+    background:#159447;
+    color:white;
+}
+
+.products-image{
+    min-height:320px;
+    border-radius:25px;
+    background:
+    radial-gradient(circle,#fff 0%,#d8e2e8 55%,#b7c6d1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:100px;
+}
+
+.features{
+    max-width:1150px;
+    margin:-25px auto 40px;
+    background:#06264b;
+    color:white;
+    border-radius:20px;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.feature{
+    text-align:center;
+    padding:8px;
+    border-left:1px solid #ffffff44;
+    font-weight:bold;
+}
+
+section{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+.title{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:30px;
+    color:#06264b;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 3px 12px #0001;
+    font-weight:bold;
+}
+
+.category .icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    padding:12px;
+    box-shadow:0 3px 12px #0001;
+}
+
+.product-image{
+    height:130px;
+    background:#f1f3f5;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+}
+
+.product h3{
+    font-size:15px;
+    margin:10px 0;
+}
+
+.stars{
+    color:#e1a900;
+}
+
+.price{
+    color:#c51e27;
+    font-size:19px;
+    font-weight:bold;
+    margin:8px 0;
+}
+
+.product button{
+    width:100%;
+    padding:9px;
+    border:0;
+    border-radius:8px;
+    background:#06264b;
+    color:white;
+    font-weight:bold;
+}
+
+.packs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.pack{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 3px 12px #0001;
+}
+
+.pack-icon{
+    font-size:60px;
+}
+
+.pack h3{
+    margin:12px;
+}
+
+.pack strong{
+    color:#c51e27;
+    font-size:22px;
+}
+
+.pro{
+    background:#06264b;
+    color:white;
+    padding:35px;
+    border-radius:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.pro h2{
+    font-size:30px;
+    color:#e5b84b;
+    margin-bottom:15px;
+}
+
+.pro li{
+    margin:10px;
+}
+
+.chantier{
+    background:white;
+    border:2px dashed #c8d0d8;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.service{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    font-weight:bold;
+}
+
+footer{
+    background:#061d38;
+    color:white;
+    padding:40px 6%;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+footer h3{
+    margin-bottom:15px;
+}
+
+footer p{
+    line-height:2;
+    color:#ccd7e4;
+}
+
+@media(max-width:900px){
+
+nav{
+    display:none;
+}
+
+.hero-content{
+    grid-template-columns:1fr;
+}
+
+.features{
+    grid-template-columns:repeat(2,1fr);
+    margin:20px;
+}
+
+.categories{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.products{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.packs{
+    grid-template-columns:1fr;
+}
+
+.pro{
+    grid-template-columns:1fr;
+}
+
+.services{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.footer-content{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.top{
+    font-size:10px;
+}
+
+.nav{
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+}
+
+.search{
+    width:120px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.categories{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.products{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.services{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.footer-content{
+    grid-template-columns:1fr;
+}
+
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-slate-900 text-white text-xs py-2 px-4 flex justify-between items-center border-b border-slate-800">
-        <div class="flex items-center space-x-4 space-x-reverse">
-            <span><i class="fa-solid fa-truck text-sky-400 ml-1"></i> توصيل سريع</span>
-            <span><i class="fa-solid fa-hand-holding-dollar text-sky-400 ml-1"></i> أداء عند الاستلام</span>
-            <span><i class="fa-solid fa-shield-halved text-sky-400 ml-1"></i> جودة مضمونة</span>
-        </div>
-        <div class="flex items-center space-x-3 space-x-reverse">
-            <span class="hidden sm:inline">Follow us</span>
-            <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-sky-400"><i class="fa-brands fa-facebook"></i></a>
-        </div>
-    </div>
+<body>
 
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2 space-x-reverse">
-                <div class="bg-sky-700 text-white font-black text-2xl p-2 rounded border-2 border-red-600 tracking-wider">
-                    SANIKRIMED
-                </div>
-            </a>
+<div class="top">
+<span>🚚 توصيل سريع</span>
+<span>🛡️ جودة مضمونة</span>
+<span>💳 أداء عند الاستلام</span>
+<span>تابعنا على Facebook و Instagram</span>
+</div>
 
-            <!-- Search Bar -->
-            <div class="hidden md:flex flex-1 max-w-md mx-6 relative">
-                <input type="text" placeholder="ابحث عن منتج..." class="w-full pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-sky-600">
-                <button class="absolute left-3 top-2.5 text-gray-400 hover:text-sky-600">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
+<header>
 
-            <!-- Header Actions -->
-            <div class="flex items-center space-x-4 space-x-reverse">
-                <a href="https://wa.me/212662456166" class="flex items-center text-green-600 font-bold text-sm bg-green-50 px-3 py-1.5 rounded-full border border-green-200">
-                    <i class="fa-brands fa-whatsapp text-lg ml-1.5"></i> واتساب
-                </a>
-                <a href="#" class="relative flex items-center text-slate-800">
-                    <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
-                </a>
-            </div>
-        </div>
+<div class="nav">
 
-        <!-- Navigation Links -->
-        <nav class="bg-slate-100 border-t border-b text-sm font-semibold">
-            <div class="container mx-auto px-4 flex space-x-6 space-x-reverse overflow-x-auto py-2">
-                <a href="#" class="text-sky-700 border-b-2 border-sky-700 pb-1">الرئيسية</a>
-                <a href="#" class="text-gray-700 hover:text-sky-700 whitespace-nowrap">خدماتنا</a>
-                <a href="#" class="text-gray-700 hover:text-sky-700 whitespace-nowrap">Packs</a>
-                <a href="#" class="text-sky-800 font-bold whitespace-nowrap">SANIKRIMED PRO</a>
-                <a href="#" class="text-gray-700 hover:text-sky-700 whitespace-nowrap">المنتجات <i class="fa-solid fa-chevron-down text-xs"></i></a>
-                <a href="#" class="text-gray-700 hover:text-sky-700 whitespace-nowrap">المصنّعات</a>
-            </div>
-        </nav>
-    </header>
+<div class="logo">
+SANI<span>KRIMED</span>
+<small>مواد السباكة والترصيص</small>
+</div>
 
-    <!-- Hero Banner -->
-    <section class="relative bg-gradient-to-l from-slate-900 to-sky-900 text-white py-12 md:py-16 overflow-hidden">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4">
-                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-                    كل ما تحتاجه للسباكة والترخيص <br><span class="text-sky-400">في مكان واحد</span>
-                </h1>
-                <p class="text-gray-300 text-sm md:text-base">
-                    جودة مضمونة • أثمنة مناسبة • توصيل سريع • تركيب متخصص
-                </p>
-                <div class="flex flex-wrap gap-3 pt-2">
-                    <a href="https://wa.me/212662456166" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-lg font-bold flex items-center text-sm shadow-lg">
-                        <i class="fa-brands fa-whatsapp text-lg ml-2"></i> اطلب عبر واتساب
-                    </a>
-                    <a href="#" class="bg-sky-600 hover:bg-sky-700 text-white px-5 py-2.5 rounded-lg font-bold flex items-center text-sm shadow-lg">
-                        <i class="fa-solid fa-bag-shopping text-lg ml-2"></i> تسوق الآن
-                    </a>
-                </div>
-                <div class="inline-block bg-slate-800/80 backdrop-blur px-4 py-1.5 rounded-full text-xs text-sky-300 border border-sky-500/30 font-semibold mt-4">
-                    <i class="fa-solid fa-check-double ml-1"></i> السلعة + الخدمة + التركيب
-                </div>
-            </div>
-            <div class="hidden md:flex justify-center relative">
-                <img src="https://via.placeholder.com/500x350/0f172a/ffffff?text=SANIKRIMED+Products" alt="منتجات السباكة" class="rounded-xl shadow-2xl object-cover">
-            </div>
-        </div>
-    </section>
+<nav>
+<a href="#">الرئيسية</a>
+<a href="#categories">المنتجات</a>
+<a href="#packs">Packs</a>
+<a href="#pro">SANIKRIMED PRO</a>
+<a href="#services">خدماتنا</a>
+</nav>
 
-    <!-- Features Bar -->
-    <section class="bg-slate-900 text-white py-6 border-t border-slate-800">
-        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div class="p-3 border border-slate-800 rounded-lg bg-slate-800/40">
-                <i class="fa-solid fa-clipboard-list text-2xl text-sky-400 mb-1"></i>
-                <h3 class="font-bold text-sm">خدمة Chantier</h3>
-                <p class="text-xs text-gray-400">صيفط اللائحة نحسبوها ليك</p>
-            </div>
-            <div class="p-3 border border-slate-800 rounded-lg bg-slate-800/40">
-                <i class="fa-solid fa-user-gear text-2xl text-sky-400 mb-1"></i>
-                <h3 class="font-bold text-sm">أسعار للمهنيين</h3>
-                <p class="text-xs text-gray-400">عروض خاصة للمقاولين</p>
-            </div>
-            <div class="p-3 border border-slate-800 rounded-lg bg-slate-800/40">
-                <i class="fa-solid fa-shield-check text-2xl text-sky-400 mb-1"></i>
-                <h3 class="font-bold text-sm">جودة مضمونة</h3>
-                <p class="text-xs text-gray-400">منتجات أصلية 100%</p>
-            </div>
-            <div class="p-3 border border-slate-800 rounded-lg bg-slate-800/40">
-                <i class="fa-solid fa-truck-fast text-2xl text-sky-400 mb-1"></i>
-                <h3 class="font-bold text-sm">توصيل سريع</h3>
-                <p class="text-xs text-gray-400">حتى باب الدار أو الورشة</p>
-            </div>
-        </div>
-    </section>
+<input class="search" placeholder="ابحث عن منتج...">
 
-    <!-- Categories Section -->
-    <section class="py-10 container mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-8 relative pb-2 border-b-2 border-red-600 w-fit mx-auto">تسوق حسب الفئة</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            <!-- Category Card -->
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="Sanitaires" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">Sanitaires</h3>
-                <span class="text-xs text-gray-500">الحمام</span>
-            </div>
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="PPR & PVC" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">PPR & PVC</h3>
-                <span class="text-xs text-gray-500">الأنابيب والوصلات</span>
-            </div>
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="Pompes & Eau" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">Pompes & Eau</h3>
-                <span class="text-xs text-gray-500">المضخات والماء</span>
-            </div>
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="Robinets" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">Robinets</h3>
-                <span class="text-xs text-gray-500">الحنفيات</span>
-            </div>
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="Accessoires" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">Accessoires</h3>
-                <span class="text-xs text-gray-500">إكسسوارات السباكة</span>
-            </div>
-            <div class="bg-white border rounded-xl p-4 text-center hover:shadow-md transition cursor-pointer">
-                <img src="https://via.placeholder.com/100" alt="Matériel chantier" class="mx-auto mb-2 h-20 object-contain">
-                <h3 class="font-bold text-sm">Matériel chantier</h3>
-                <span class="text-xs text-gray-500">معدات الورشات</span>
-            </div>
-        </div>
-    </section>
+<button class="cart">
+🛒 السلة
+</button>
 
-    <!-- Best Sellers -->
-    <section class="py-10 bg-slate-100">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">الأكثر مبيعاً</h2>
-                <a href="#" class="text-sky-700 font-bold text-sm hover:underline">عرض الكل &larr;</a>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <!-- Product Card -->
-                <div class="bg-white border rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col justify-between">
-                    <div class="p-3 relative">
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold absolute top-2 right-2">الأكثر مبيعاً</span>
-                        <img src="https://via.placeholder.com/120" alt="Tube PPR 20" class="mx-auto h-28 object-contain my-2">
-                        <h3 class="font-bold text-xs">Tube PPR 20</h3>
-                        <div class="text-yellow-400 text-xs my-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="font-black text-sky-800 text-sm">15,00 DH</div>
-                    </div>
-                    <div class="p-2 border-t flex gap-1">
-                        <button class="bg-slate-900 text-white p-2 rounded flex-1 text-xs hover:bg-slate-800"><i class="fa-solid fa-cart-plus"></i></button>
-                        <a href="https://wa.me/212662456166" class="bg-green-600 text-white p-2 rounded flex-1 text-center text-xs hover:bg-green-700"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
+</div>
 
-                <!-- Repeat Product Card 2 -->
-                <div class="bg-white border rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col justify-between">
-                    <div class="p-3 relative">
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold absolute top-2 right-2">الأكثر مبيعاً</span>
-                        <img src="https://via.placeholder.com/120" alt="WC complet" class="mx-auto h-28 object-contain my-2">
-                        <h3 class="font-bold text-xs">WC complet</h3>
-                        <div class="text-yellow-400 text-xs my-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="font-black text-sky-800 text-sm">650,00 DH</div>
-                    </div>
-                    <div class="p-2 border-t flex gap-1">
-                        <button class="bg-slate-900 text-white p-2 rounded flex-1 text-xs hover:bg-slate-800"><i class="fa-solid fa-cart-plus"></i></button>
-                        <a href="https://wa.me/212662456166" class="bg-green-600 text-white p-2 rounded flex-1 text-center text-xs hover:bg-green-700"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
+</header>
 
-                <!-- Repeat Product Card 3 -->
-                <div class="bg-white border rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col justify-between">
-                    <div class="p-3 relative">
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold absolute top-2 right-2">الأكثر مبيعاً</span>
-                        <img src="https://via.placeholder.com/120" alt="Pompe à eau 1HP" class="mx-auto h-28 object-contain my-2">
-                        <h3 class="font-bold text-xs">Pompe à eau 1HP</h3>
-                        <div class="text-yellow-400 text-xs my-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="font-black text-sky-800 text-sm">1.250,00 DH</div>
-                    </div>
-                    <div class="p-2 border-t flex gap-1">
-                        <button class="bg-slate-900 text-white p-2 rounded flex-1 text-xs hover:bg-slate-800"><i class="fa-solid fa-cart-plus"></i></button>
-                        <a href="https://wa.me/212662456166" class="bg-green-600 text-white p-2 rounded flex-1 text-center text-xs hover:bg-green-700"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- PRO Banner -->
-    <section class="py-8 container mx-auto px-4">
-        <div class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center border-2 border-amber-500">
-            <div class="space-y-2 text-center md:text-right">
-                <span class="bg-amber-500 text-slate-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase">SANIKRIMED PRO</span>
-                <h3 class="text-2xl font-bold">أنت سباك؟ مقاول؟ مهني؟</h3>
-                <p class="text-gray-300 text-sm">استفد من أثمنة خاصة وعروض حصرية للكميات وررشات البناء.</p>
-            </div>
-            <div class="mt-4 md:mt-0">
-                <a href="#" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-lg flex items-center shadow-md">
-                    <i class="fa-solid fa-user-plus ml-2"></i> فتح حساب مهني
-                </a>
-            </div>
-        </div>
-    </section>
+<section class="hero">
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-gray-400 pt-10 pb-6 border-t border-slate-800">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-sm">
-            <div>
-                <h4 class="text-white font-bold text-lg mb-3">SANIKRIMED</h4>
-                <p class="text-xs leading-relaxed">متجر متخصص في بيع مواد السباكة والترخيص. جودة مضمونة، أثمنة مناسبة، خدمة والتركيب. كل ما تحتاجه في مكان واحد.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-3">روابط سريعة</h4>
-                <ul class="space-y-1.5 text-xs">
-                    <li><a href="#" class="hover:text-sky-400">الرئيسية</a></li>
-                    <li><a href="#" class="hover:text-sky-400">المنتجات</a></li>
-                    <li><a href="#" class="hover:text-sky-400">SANIKRIMED PRO</a></li>
-                    <li><a href="#" class="hover:text-sky-400">تواصل معنا</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-3">تواصل معنا</h4>
-                <p class="text-xs mb-1"><i class="fa-solid fa-location-dot ml-2 text-sky-400"></i> 114 Lotissement AL ALIA, TIT MELLIL, CASABLANCA</p>
-                <p class="text-xs mb-1"><i class="fa-solid fa-phone ml-2 text-sky-400"></i> +212 662 456 166</p>
-                <p class="text-xs"><i class="fa-solid fa-envelope ml-2 text-sky-400"></i> sanikrimed@gmail.com</p>
-            </div>
-        </div>
-        <div class="text-center text-xs text-gray-600 pt-4 border-t border-slate-900">
-            &copy; 2026 SANIKRIMED. جميع الحقوق محفوظة.
-        </div>
-    </footer>
+<div class="hero-content">
+
+<div>
+
+<h1>
+كل ما تحتاجه
+<span>للسباكة والترصيص</span>
+في مكان واحد
+</h1>
+
+<p>
+جودة مضمونة • أثمنة مناسبة • توصيل سريع • تركيب متخصص
+</p>
+
+<a class="btn blue" href="#products">
+🛒 تسوق الآن
+</a>
+
+<a class="btn green"
+href="https://wa.me/212662456166">
+📲 اطلب عبر واتساب
+</a>
+
+<p>
+السلعة + الخدمة + التركيب
+</p>
+
+</div>
+
+<div class="products-image">
+🚽 🚰 💧 🔧
+</div>
+
+</div>
+
+</section>
+
+
+<div class="features">
+
+<div class="feature">
+🚚
+<br>
+توصيل سريع
+<br>
+<small>حتى باب الدار أو الورشة</small>
+</div>
+
+<div class="feature">
+🔧
+<br>
+خدمة وتركيب
+<br>
+<small>فريق متخصص</small>
+</div>
+
+<div class="feature">
+🛡️
+<br>
+جودة مضمونة
+<br>
+<small>منتجات مختارة</small>
+</div>
+
+<div class="feature">
+👷
+<br>
+أسعار للمهنيين
+<br>
+<small>عروض خاصة</small>
+</div>
+
+<div class="feature">
+📋
+<br>
+خدمة Chantier
+<br>
+<small>صيفط اللائحة نحسبوها ليك</small>
+</div>
+
+</div>
+
+
+<section id="categories">
+
+<h2 class="title">
+تسوق حسب الفئة
+</h2>
+
+<div class="categories">
+
+<div class="category">
+<div class="icon">🚽</div>
+Sanitaires
+<br>
+الحمام
+</div>
+
+<div class="category">
+<div class="icon">🟢</div>
+PPR & PVC
+<br>
+الأنابيب والوصلات
+</div>
+
+<div class="category">
+<div class="icon">💧</div>
+Pompes & Eau
+<br>
+المضخات والماء
+</div>
+
+<div class="category">
+<div class="icon">🚰</div>
+Robinets
+<br>
+الحنفيات
+</div>
+
+<div class="category">
+<div class="icon">🔩</div>
+Accessoires
+<br>
+إكسسوارات السباكة
+</div>
+
+<div class="category">
+<div class="icon">🧰</div>
+Matériel chantier
+<br>
+معدات الورشات
+</div>
+
+</div>
+
+</section>
+
+
+<section id="products">
+
+<h2 class="title">
+الأكثر مبيعاً
+</h2>
+
+<div class="products">
+
+<div class="product">
+<div class="product-image">🟢</div>
+<h3>Tube PPR 20</h3>
+<div class="stars">★★★★★</div>
+<div class="price">15 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+<div class="product">
+<div class="product-image">⚙️</div>
+<h3>Coude PVC 50</h3>
+<div class="stars">★★★★★</div>
+<div class="price">8 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+<div class="product">
+<div class="product-image">🚰</div>
+<h3>Robinet laiton 1/2</h3>
+<div class="stars">★★★★★</div>
+<div class="price">35 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+<div class="product">
+<div class="product-image">🚽</div>
+<h3>WC complet</h3>
+<div class="stars">★★★★★</div>
+<div class="price">650 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+<div class="product">
+<div class="product-image">💧</div>
+<h3>Pompe à eau 1HP</h3>
+<div class="stars">★★★★★</div>
+<div class="price">1,250 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+<div class="product">
+<div class="product-image">〰️</div>
+<h3>Flexible 60 cm</h3>
+<div class="stars">★★★★★</div>
+<div class="price">25 DH</div>
+<button>🛒 أضف للسلة</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="packs">
+
+<h2 class="title">
+اختر الـ Pack المناسب لك
+</h2>
+
+<div class="packs">
+
+<div class="pack">
+<div class="pack-icon">🚿</div>
+<h3>Pack Salle de Bain</h3>
+<p>كل ما تحتاجه لتجهيز حمامك</p>
+<strong>1,990 DH</strong>
+<br><br>
+<button class="btn blue">اكتشف Pack</button>
+</div>
+
+<div class="pack">
+<div class="pack-icon">💧</div>
+<h3>Pack Pompe</h3>
+<p>المضخة + اللوازم + التركيب</p>
+<strong>1,490 DH</strong>
+<br><br>
+<button class="btn blue">اطلب العرض</button>
+</div>
+
+<div class="pack">
+<div class="pack-icon">🏠</div>
+<h3>Pack Plomberie Maison</h3>
+<p>تجهيز شبكة الماء والصرف</p>
+<strong>2,490 DH</strong>
+<br><br>
+<button class="btn blue">احصل على عرض</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="pro">
+
+<div class="pro">
+
+<div>
+
+<h2>
+SANIKRIMED PRO
+</h2>
+
+<h3>
+أنت سباك؟ مقاول؟ مهني؟
+</h3>
+
+<p>
+استفد من أثمنة خاصة حسب الكمية.
+</p>
+
+<ul>
+<li>Prix professionnel</li>
+<li>عروض الكمية</li>
+<li>تجهيز طلبات chantier</li>
+<li>توصيل للورشات</li>
+<li>فواتير</li>
+</ul>
+
+<a class="btn green"
+href="https://wa.me/212662456166">
+فتح حساب مهني
+</a>
+
+</div>
+
+<div>
+
+<h2>
+خدمة Chantier
+</h2>
+
+<p>
+صيفط لينا لائحة المواد أو صورة ديالها
+وحنا نحسبوها ليك.
+</p>
+
+<br>
+
+<a class="btn green"
+href="https://wa.me/212662456166">
+📲 صيفط اللائحة عبر واتساب
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="chantier">
+
+<h2>
+🏗️ عندك Chantier؟
+</h2>
+
+<p>
+ما تضيعش وقتك في البحث على المواد.
+صيفط لينا اللائحة أو صورة ديالها.
+</p>
+
+<a class="btn green"
+href="https://wa.me/212662456166">
+إرسال اللائحة عبر WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<section id="services">
+
+<h2 class="title">
+خدماتنا
+</h2>
+
+<div class="services">
+
+<div class="service">
+🔧
+<br>
+تركيب السباكة
+</div>
+
+<div class="service">
+💧
+<br>
+تركيب المضخات
+</div>
+
+<div class="service">
+🚿
+<br>
+تجهيز الحمامات
+</div>
+
+<div class="service">
+🏠
+<br>
+أعمال السباكة المنزلية
+</div>
+
+<div class="service">
+🏗️
+<br>
+تجهيز Chantiers
+</div>
+
+<div class="service">
+🚚
+<br>
+خدمة التوصيل
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+<h3>SANIKRIMED</h3>
+<p>
+متجر متخصص في مواد السباكة والترصيص.
+جودة مضمونة، خدمة مناسبة وتركيب متخصص.
+</p>
+</div>
+
+<div>
+<h3>روابط سريعة</h3>
+<p>
+الرئيسية<br>
+المنتجات<br>
+Packs<br>
+SANIKRIMED PRO<br>
+خدماتنا
+</p>
+</div>
+
+<div>
+<h3>معلومات</h3>
+<p>
+سياسة التوصيل<br>
+طرق الدفع<br>
+الاسترجاع<br>
+الأسئلة الشائعة
+</p>
+</div>
+
+<div>
+<h3>تواصل معنا</h3>
+<p>
+📍 114 Lotissement AL ALIA
+Tit Mellil Sidi Hajjaj
+Oued Hassar, Casablanca
+<br>
+📞 +212 662 456 166
+<br>
+📲 WhatsApp
+</p>
+</div>
+
+</div>
+
+</footer>
 
 </body>
 </html>
-
